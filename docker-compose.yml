@@ -1,0 +1,27 @@
+version: "3.1"
+services:
+  web:
+    image: localhost:5000/esac-web
+    depends_on:
+      - api
+    ports:
+      - "80:80"
+    networks:
+      - webnet
+
+  api:
+    image: localhost:5000/esac-api
+    depends_on:
+      - mongo
+    environment:
+      - PORT=80
+    networks:
+      - webnet
+
+  mongo:
+    image: mvertes/alpine-mongo
+    networks:
+      - webnet
+
+networks:
+  webnet:
