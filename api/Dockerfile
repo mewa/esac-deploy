@@ -1,6 +1,4 @@
-FROM ubuntu
-
-RUN apt-get update && apt-get install -y libgmp-dev
+FROM centos
 
 ADD ./bin api
 
