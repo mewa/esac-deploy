@@ -1,6 +1,6 @@
-[submodule "api"]
-	path = api/app
-	url = git@github.com:mewa/esac-mir
-[submodule "web"]
+[submodule "web/app"]
 	path = web/app
-	url = git@github.com:joanna-solomiewicz/Bachelor-s-Degree.git
+	url = git@joanna-solomiewicz.github.com:joanna-solomiewicz/Bachelor-s-Degree.git
+[submodule "api/app"]
+	path = api/app
+	url = git@mewa.github.com:mewa/esac-mir.git
