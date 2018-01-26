@@ -1,9 +1,11 @@
 deploy: api web
 	docker stack deploy -c docker-compose.yml esac
 
-api:
+sync:
 	git pull
 	git submodule update --init
+
+api: sync
 	cd ./api/app; \
 	stack build --copy-bins --allow-different-user
 	[ -d ./api/bin ] || mkdir ./api/bin
@@ -11,7 +13,8 @@ api:
 	docker build -t localhost:5000/esac-api api
 	docker push localhost:5000/esac-api
 
-web:
+web: sync
+	ng-build -prod
 	docker build -t localhost:5000/esac-web web
 	docker push localhost:5000/esac-web
 
