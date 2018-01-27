@@ -14,8 +14,7 @@ api: sync
 	docker push localhost:5000/esac-api
 
 web: sync
-	ng build --prod --aot=false
-	docker build -t localhost:5000/esac-web web
+	docker build --no-cache -t localhost:5000/esac-web web
 	docker push localhost:5000/esac-web
 
 registry:
